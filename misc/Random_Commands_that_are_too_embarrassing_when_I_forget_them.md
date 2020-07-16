@@ -116,6 +116,12 @@ aws --profile your-profile ec2 describe-images --owners amazon --filters "Name=n
 ]
 ```
 
+## Get all IPs for ec2 instances in a given region
+
+```shell
+aws --profile your-profile --region=us-east-1 ec2 describe-instances --query "Reservations[*].Instances[*].NetworkInterfaces[*].PrivateIpAddress" --output=text
+```
+
 # Bash
 
 ## Send a running process to the background and leave it running after ssh disconnects
