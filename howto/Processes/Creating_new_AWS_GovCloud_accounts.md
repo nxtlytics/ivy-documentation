@@ -266,6 +266,8 @@ have accepted the invitation.
 
 ### AMIs
 
+Note: Using [ami-bakery](https://github.com/nxtlytics/ivy-ami-bakery)
+
 AMIs are created by AMI Builder in a tools account then:
 
 1.  EC2 console
@@ -332,6 +334,8 @@ it, this can be done using our terraform [ACM certificates module](https://githu
 -   You can then add these records using our [terraform route53 module](https://github.com/nxtlytics/ivy-terraform-modules/tree/master/aws/route53)
 
 **Note:** Wait until AWS has issued the certificate
+
+## *NOTE:* when the document below mentions rain it refer to this [repo](https://github.com/nxtlytics/ivy-rain)
 
 ## Step 1 - Create VPC and VPN
 
