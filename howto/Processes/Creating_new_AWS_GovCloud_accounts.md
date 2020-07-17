@@ -298,7 +298,7 @@ terraform/terragrunt
 
 -   Example: [dev.example.com](https://github.com/nxtlytics/ivy-terragrunt-core/blob/master/commercial/aws/ivy-master-prod/route53/example.com/terragrunt.hcl#L32-L50)
 
-**Note: **GovCloud and China does not let you create public hosted zones just
+**Note: **GovCloud does not let you create public hosted zones just
 create the hosted zone in the main account and then setup the
 delegation here also, youn may use our [terraform route53 module](https://github.com/nxtlytics/ivy-terraform-modules/tree/master/aws/route53)
 
