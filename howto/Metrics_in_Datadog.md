@@ -3,6 +3,8 @@
 Datadog is not certified for handling FOUO data or metric names, if you
 require statistics for FOUO-specific data you would have to find a different solution.
 
+*Note:* Checkout our [Basic Dashboards](https://github.com/nxtlytics/ivy-terraform-modules/tree/master/datadog/basic-dashboards) terraform module
+
 # Overview
 
 DataDog is currently the metrics provider of choice for Ivy for a
