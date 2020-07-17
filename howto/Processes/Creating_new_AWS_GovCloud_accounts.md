@@ -296,8 +296,6 @@ Create a public hosted zone within the account following nomenclature:
 example.com hosted zone in the master account. This is done using
 terraform/terragrunt
 
--   Example: [dev.example.com](https://github.com/nxtlytics/ivy-terragrunt-core/blob/master/commercial/aws/ivy-master-prod/route53/example.com/terragrunt.hcl#L32-L50)
-
 **Note: **GovCloud does not let you create public hosted zones just
 create the hosted zone in the main account and then setup the
 delegation here also, youn may use our [terraform route53 module](https://github.com/nxtlytics/ivy-terraform-modules/tree/master/aws/route53)
@@ -342,8 +340,8 @@ it, this can be done using our terraform [ACM certificates module](https://githu
 ### Add sysenv shortname block to config/constants.py
 
 -   Example:
-    [dev](https://github.com/nxtlytics/ivy-rain/blob/master/config/constants.py#L216-L348)
-    and [SSL certificate](https://github.com/nxtlytics/ivy-rain/blob/master/config/constants.py#L606-L614)
+    [dev](https://github.com/nxtlytics/ivy-rain/blob/master/config/constants.py#L14-L153)
+    and [SSL certificate](https://github.com/nxtlytics/ivy-rain/blob/master/config/constants.py#L224-L232)
 -   Make sure to update your documentation with the new names and subnets
 
 ### Create VPC
