@@ -1,75 +1,5 @@
 # Random Commands that are too embarrassing when I forget them
 
--   [Apache](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Apache)
-    -   [Common errors](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Commonerrors)
-    -   [Test apache syntax](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Testapachesyntax)
--   [AWS CLI](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-AWSCLI)
-    -   [Get latest ami for X](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-GetlatestamiforX)
--   [Bash](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Bash)
-    -   [Send a running process to the background and leave it running after ssh disconnects](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Sendarunningprocesstothebackgroundandleaveitrunningaftersshdisconnects)
-    -   [List all programs available in your session](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Listallprogramsavailableinyoursession)
-    -   [List all programs with the same name](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Listallprogramswiththesamename)
-    -   [Order in which programs/alias/functions are used/available](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Orderinwhichprograms/alias/functionsareused/available)
--   [dig](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-dig)
-    -   [Reverse DNS lookup in linux](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-ReverseDNSlookupinlinux)
-    -   [Reverse DNS lookup in windows](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-ReverseDNSlookupinwindows)
--   [Docker](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Docker)
-    -   ["SSH" to docker for mac](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-%22SSH%22todockerformac)
--   [flock](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-flock)
-    -   [Do not duplicate a process if it is already running](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Donotduplicateaprocessifitisalreadyrunning)
--   [git](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-git)
-    -   [Test ssh key against github](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Testsshkeyagainstgithub)
-    -   [How to solve a merge conflict with vimdiff](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Howtosolveamergeconflictwithvimdiff)
-    -   [vimdiff cheatsheet](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-vimdiffcheatsheet)
-    -   [More on git rebase and merge](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Moreongitrebaseandmerge)
-    -   [Set push to your fork (avoid pushing to original project)](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Setpushtoyourfork(avoidpushingtooriginalproject))
-    -   [Sync your fork from upstream (original repo)](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Syncyourforkfromupstream(originalrepo))
-    -   [Mirror upstream to fork](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Mirrorupstreamtofork)
-    -   [Remove Remote](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-RemoveRemote)
-    -   [Rename Remote](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-RenameRemote)
-    -   [Review las commit](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Reviewlascommit)
-    -   [Restore your fork back to the upstream state (FORCE)](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Restoreyourforkbacktotheupstreamstate(FORCE))
-    -   [git cheatsheet](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-gitcheatsheet)
--   [Journalctl](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Journalctl)
-    -   [Filter by path](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Filterbypath)
-    -   [Send to stdout](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Sendtostdout)
--   [less](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-less)
-    -   [less with color support(?)](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-lesswithcolorsupport?)
--   [netcat](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-netcat)
-    -   [netcat using proxy](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-netcatusingproxy)
--   [netstat](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-netstat)
-    -   [List incoming connections](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Listincomingconnections)
--   [nfs](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-nfs)
-    -   [List connected clients](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Listconnectedclients)
--   [Regular expressions](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Regularexpressions)
--   [sed](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-sed)
-    -   [Match newline](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Matchnewline)
--   [Systemd](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Systemd)
-    -   [Reload Systemd after modifying units](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-ReloadSystemdaftermodifyingunits)
--   [tar](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-tar)
-    -   [keep permissions for easy transfer](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-keeppermissionsforeasytransfer)
-        -   [On the source computer](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Onthesourcecomputer)
-        -   [On the destination computer](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Onthedestinationcomputer)
--   [tcpdump - tshark](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-tcpdump-tshark)
-    -   [Suggested page](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Suggestedpage)
-    -   [DNS query and resp addr](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-DNSqueryandrespaddr)
-    -   [HTTP host and user agent based on http requests](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-HTTPhostanduseragentbasedonhttprequests)
-    -   [DHCP](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-DHCP)
--   [Terraform - Terragrunt](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Terraform-Terragrunt)
-    -   [format check .tf and .tfvars files](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-formatcheck.tfand.tfvarsfiles)
-    -   [format check .hcl files](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-formatcheck.hclfiles)
--   [Vim](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Vim)
-    -   [Disable tabs when pasting](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Disabletabswhenpasting)
-    -   [Set backgroun dark - change vim colors](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Setbackgroundark-changevimcolors)
-        -   [2 spaces](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-2spaces)
-        -   [4 spaces](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-4spaces)
-    -   [Scrolling synchronously](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Scrollingsynchronously)
--   [YUM](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-YUM)
-    -   [List all available versions of a package](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Listallavailableversionsofapackage)
--   [Zookeeper](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-Zookeeper)
-    -   [mntr](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-mntr)
-    -   [ruok](#id-00-RandomCommandsthataretooembarrassingwhenIforgetthem-ruok)
-
 # Apache
 
 ## Common errors
@@ -317,6 +247,14 @@ journalctl --no-pager
 
 ```bash
 less -Rf <file>
+```
+
+# lsof
+
+## See al ports that are listening
+
+```bash
+lsof -Pi TCP -s TCP:LISTEN
 ```
 
 # netcat
