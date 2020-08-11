@@ -1,28 +1,5 @@
 # 01 - Stuff I may forget
 
--   [AWS](#id-01-StuffImayforget-AWS)
-    -   [AWS services in Scope by Compliance Program](#id-01-StuffImayforget-AWSservicesinScopebyComplianceProgram)
-    -   [About Global services (e. g. IAM, Route53)](#id-01-StuffImayforget-AboutGlobalservices(e.g.IAM,Route53))
-        -   [Cloudtrail](#id-01-StuffImayforget-Cloudtrail)
-    -   [Cloudfront](#id-01-StuffImayforget-Cloudfront)
-        -   [Origin Access Identity (OAI) to use with private s3 buckets](#id-01-StuffImayforget-OriginAccessIdentity(OAI)tousewithprivates3buckets)
-    -   [GovCloud Endpoints](#id-01-StuffImayforget-GovCloudEndpoints)
-    -   [Route53](#id-01-StuffImayforget-Route53)
--   [Azure](#id-01-StuffImayforget-Azure)
-    -   [Azure services by FedRAMP and DoD CC SRG audit scope](#id-01-StuffImayforget-AzureservicesbyFedRAMPandDoDCCSRGauditscope)
-    -   [Organize Azure Resources](#id-01-StuffImayforget-OrganizeAzureResources)
-    -   [Upgrade to a general-purpose v2 storage account](#id-01-StuffImayforget-Upgradetoageneral-purposev2storageaccount)
-    -   [What does "External Azure Active Directory" mean?](#id-01-StuffImayforget-Whatdoes%22ExternalAzureActiveDirectory%22mean?)
--   [Certbot](#id-01-StuffImayforget-Certbot)
-    -   [How does a certbot route53 dns challenge looks like?](#id-01-StuffImayforget-Howdoesacertbotroute53dnschallengelookslike?)
--   [DNS](#id-01-StuffImayforget-DNS)
-    -   [How DNS works](#id-01-StuffImayforget-HowDNSworks)
--   [Windows](#id-01-StuffImayforget-Windows)
-    -   [How to retrieve hidden (dotted/starred) passwords from GUIs](#id-01-StuffImayforget-Howtoretrievehidden(dotted/starred)passwordsfromGUIs)
--   [Linux](#id-01-StuffImayforget-Linux)
-    -   [STIG-Partitioned Enterprise Linux
-        (spel)](#id-01-StuffImayforget-STIG-PartitionedEnterpriseLinux(spel))
-
 # AWS
 
 ## AWS services in Scope by Compliance Program
@@ -163,6 +140,34 @@ Anyone who shows up as "External Azure Active Directory" is a user who is alread
 
 [How DNS works](https://howdns.works/)
 
+# Linux
+
+## STIG-Partitioned Enterprise Linux (spel)
+
+[plus3it/spel](https://github.com/plus3it/spel)
+
+# Python
+
+## "is" vs "=="
+
+```python
+>>> a = [1, 2, 3]
+>>> b = a
+>>> a is b
+True
+>>> a == b
+True
+>>> c = list(a)
+>>> a == c
+True
+>>> a is c
+False
+# • "is" expressions evaluate to True if two
+#   variables point to the same object
+# • "==" evaluates to True if the objects
+#   referred to by the variables are equal
+```
+
 # Windows
 
 ## How to retrieve hidden (dotted/starred) passwords from GUIs
@@ -174,9 +179,3 @@ Anyone who shows up as "External Azure Active Directory" is a user who is alread
 4.  Run the executable you extracted on previous step
 5.  Open application that has hidden password and you should see the password on `bullets password view` 
 6.  Done!
-
-# Linux
-
-## STIG-Partitioned Enterprise Linux (spel)
-
-[plus3it/spel](https://github.com/plus3it/spel)
