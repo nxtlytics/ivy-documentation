@@ -1,35 +1,34 @@
 # Creating new AWS / GovCloud accounts
 
 
-# Creating a new commercial AWS account (the manual, er... fun way)
+# Creating a new commercial AWS account
 
 1.  Retrieve IAM credentials for commercial organization payer
-    commercial account
+    commercial account and set them up in your `~/.aws/credentials`
+    and/or `~/.aws/config`
 
-2.  Create the new account
+2.  Retrieve the SAML Document from your Identity Provider (IDP)
+    **References:**
+    - [G Suite - How to setup custom SAML application](https://support.google.com/a/answer/6087519?hl=en)
+
+3.  Clone https://github.com/nxtlytics/ivy-accounts-tools
 
 ``` bash
-aws --profile regular-aws organizations create-account --email infeng+<accountname>@example.com --account-name <accountname>
+git clone git@github.com:nxtlytics/ivy-accounts-tools.git
 ```
 
-**Example Output:**
+or
 
-``` bash
-$ aws --profile regular-aws organizations create-account --email infeng+ivy-sandbox-dev@example.com --account-name ivy-sandbox-dev
-{
-    "CreateAccountStatus": {
-        "Id": "<REACTED>",
-        "AccountName": "ivy-sandbox-dev",
-        "State": "IN_PROGRESS",
-        "RequestedTimestamp": 1579648930.003
-    }
-}
+```bash
+git clone https://github.com/nxtlytics/ivy-accounts-tools.git
 ```
 
-3.  Obtain the Account ID of the new account
+4.  Create a new sub account
 
 ``` bash
-aws --profile regular-aws organizations list-accounts --query 'Accounts[?Name == `<accountname>`].Id | [0]' --output text
+AWS_PROFILE=regular-aws pipenv run python setup_account.py -a <accountname> -e infeng+<accountname>@example.com \
+    -f </path/to/saml/document.xml> -s <something, defaults to gsuite> -t <something, defaults to ivy> \
+    [-l {CRITICAL,ERROR,WARNING,INFO,DEBUG}]
 ```
 
 **Example Output:**
@@ -39,77 +38,20 @@ $ aws --profile regular-aws organizations list-accounts --query 'Accounts[?Name 
 260432279923
 ```
 
-4.  Assume the access role in the new account
 
-``` bash
-aws --profile regular-aws sts assume-role OrganizationAccountAccessRole --role-arn arn:aws:iam::<new account id>:role/OrganizationAccountAccessRole --role-session-name CLISession
-```
-
-or add
-
-``` bash
-[profile <newaccount>-assumerole]
-role_arn = arn:aws:iam::<new account id>:role/OrganizationAccountAccessRole
-source_profile = regular-aws
-```
-
-to your `~/.aws/config` file
-
-5.  Add the account alias
-
-``` bash
-aws --profile <newaccount>-assumerole iam create-account-alias --account-alias <accountname>
-```
-
-6.  Set up the SSO/SAML provider
-
-``` bash
-aws --profile <newaccount>-assumerole iam create-saml-provider --saml-metadata-document file://path/to/commercial/IDPMetadata.xml --name ivy-gsuite
-```
-
-**Example Output:**
-
-``` bash
-$ aws --profile ivy-sandbox-dev-assumerole iam create-saml-provider --saml-metadata-document file://./IDPMetadata.xml --name ivy-gsuite
-{
-    "SAMLProviderArn": "arn:aws:iam::<new account id>:saml-provider/ivy-gsuite"
-}
-```
-
-You can download the SAML provider from an existing account if necessary.
-
-**Example:**
-
-``` bash
-$ aws --profile regular-aws-master iam get-saml-provider --saml-provider-arn arn:aws:iam::<master account id>:saml-provider/ivy-gsuite --query SAMLMetadataDocument --output text
-<REDACTED>
-```
-
-7.  Add the SSO AdministratorAccess and viewer roles and trust the SSO
-    provider
-
-``` bash
-# SSOAdministratorAccess
-aws --profile <newaccount>-assumerole iam create-role --role-name SSOAdministratorAccess --max-session-duration 28800 --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Action":"sts:AssumeRoleWithSAML","Effect":"Allow","Condition":{"StringEquals":{"SAML:aud":"https://signin.aws.amazon.com/saml"}},"Principal":{"Federated":"arn:aws:iam::<new account id>:saml-provider/ivy-gsuite"}}]}'
-aws --profile <newaccount>-assumerole iam attach-role-policy --role-name SSOAdministratorAccess --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
-# SSOViewOnlyAccess
-aws --profile <newaccount>-assumerole iam create-role --role-name SSOViewOnlyAccess --max-session-duration 28800 --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Action":"sts:AssumeRoleWithSAML","Effect":"Allow","Condition":{"StringEquals":{"SAML:aud":"https://signin.aws.amazon.com/saml"}},"Principal":{"Federated":"arn:aws:iam::<new account id>:saml-provider/ivy-gsuite"}}]}'
-aws --profile <newaccount>-assumerole iam attach-role-policy --role-name SSOViewOnlyAccess --policy-arn arn:aws:iam::aws:policy/job-function/ViewOnlyAccess
-```
-
-8.  Add the commercial SSO role to users in G Suite
+5.  Add the commercial SSO role to users in G Suite
 
     1.  Open G Suite Admin
 
     2.  Users -> select user to edit -> User Information -> **AWS SSO**
 
-    3.  Add **arn:aws:iam:::role/SSOAdministratorAccess,arn:aws:iam:::saml-provider/ivy-gsuite** or ** arn:aws:iam:::role/SSOViewOnlyAccess,arn:aws:iam:::saml-provider/ivy-gsuite** (accordingly)
+    3.  Add **arn:aws:iam::<new account id>:role/SSOAdministratorAccess,arn:aws:iam::<new account id>:saml-provider/ivy-gsuite** or ** arn:aws:iam::<new account id>:role/SSOViewOnlyAccess,arn:aws:iam::<new account id>:saml-provider/ivy-gsuite** (accordingly)
 
     4.  Ensure duration is set to **28800**
 
     5.  Rinse and repeat for all users that require access to new account
 
-9.  Configure local SAML credentials for new commercial account. Add the following to your **`~/.saml2aws`** configuration file:
+6.  Configure local SAML credentials for new commercial account. Add the following to your **`~/.saml2aws`** configuration file:
 
 ``` text
 [<new account name>]
@@ -135,7 +77,7 @@ region               = us-west-2
     From now on, you can use **`aws --profile <new account name> ...`**
     instead of the assumed role that was created earlier
 
-10. Recover the root password for the new account, and add it to 1Password
+7. Recover the root password for the new account, and add it to 1Password
 
     1.  Go to <https://console.aws.amazon.com/console/home>
 
@@ -145,7 +87,7 @@ region               = us-west-2
 
     4.  An email will be sent to the email address to allow password reset
 
-11. Invite the new account to the AWS organization (login to main's account and check \<new account id\> is in the org if not invite it)
+8. Store new root credentials on your password manager
 
 # Creating GovCloud accounts
 
