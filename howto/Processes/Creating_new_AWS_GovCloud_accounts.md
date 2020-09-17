@@ -8,6 +8,7 @@
     and/or `~/.aws/config`
 
 2.  Retrieve the SAML Document from your Identity Provider (IDP)
+
     **References:**
     - [G Suite - How to setup custom SAML application](https://support.google.com/a/answer/6087519?hl=en)
 
@@ -34,8 +35,25 @@ AWS_PROFILE=regular-aws pipenv run python setup_account.py -a <accountname> -e i
 **Example Output:**
 
 ``` bash
-$ aws --profile regular-aws organizations list-accounts --query 'Accounts[?Name == `ivy-sandbox-dev`].Id | [0]' --output text
-260432279923
+$ AWS_PROFILE=master-account pipenv run python setup_account.py \
+    -a ivy-aws-app-dev -e infeng+ivy-aws-app-dev@example.com \
+    -s gsuite -t ivy -f ./gsuite_metadata.xml
+2020-09-17 14:51:56,364 INFO (MainThread) [botocore.credentials] Found credentials in shared credentials file: ~/.aws/credentials
+2020-09-17 14:51:56,444 INFO (MainThread) [root] I will try to create sub-account ivy-aws-app-dev
+2020-09-17 14:51:57,023 INFO (MainThread) [new_sub_account.new_sub_account] An account with name ivy-aws-app-dev and/or email infeng+ivy-aws-app-dev@example.com already exists, its account ID is 000000000000
+2020-09-17 14:51:57,023 INFO (MainThread) [new_sub_account.new_sub_account] No sub account will be created
+2020-09-17 14:51:57,496 INFO (MainThread) [setup_sso.setup_sso] An account alias ivy-aws-app-dev already exists
+2020-09-17 14:51:57,496 INFO (MainThread) [setup_sso.setup_sso] Account alias has already been setup and is ivy-aws-app-dev
+2020-09-17 14:51:58,431 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Cleaning AWS region [eu-north-1] of all VPCs...
+2020-09-17 14:51:59,502 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Cleaning VPC [vpc-00000000] in region [eu-north-1]
+2020-09-17 14:51:59,531 INFO (MainThread) [botocore.credentials] Found credentials in shared credentials file: ~/.aws/credentials
+2020-09-17 14:51:59,588 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Running step [del_igw] for VPC [vpc-00000000] in region [eu-north-1]
+2020-09-17 14:52:00,377 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Running step [del_sub] for VPC [vpc-00000000] in region [eu-north-1]
+2020-09-17 14:52:00,672 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Running step [del_rtb] for VPC [vpc-00000000] in region [eu-north-1]
+2020-09-17 14:52:00,905 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Running step [del_acl] for VPC [vpc-00000000] in region [eu-north-1]
+2020-09-17 14:52:01,137 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Running step [del_sgp] for VPC [vpc-00000000] in region [eu-north-1]
+2020-09-17 14:52:01,377 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Running step [del_vpc] for VPC [vpc-00000000] in region [eu-north-1]
+...
 ```
 
 
