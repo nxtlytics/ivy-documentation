@@ -27,7 +27,7 @@ git clone https://github.com/nxtlytics/ivy-accounts-tools.git
 
 ``` bash
 AWS_PROFILE=regular-aws pipenv run python setup_account.py -a <accountname> -e infeng+<accountname>@example.com \
-    -f </path/to/saml/document.xml> -s <something, defaults to gsuite> -t <something, defaults to ivy> \
+    -f </path/to/saml/document.xml> -s <SAML_PROVIDER, defaults to gsuite> -t <IVY_TAG, defaults to ivy> \
     [-l {CRITICAL,ERROR,WARNING,INFO,DEBUG}]
 ```
 
@@ -45,7 +45,7 @@ $ aws --profile regular-aws organizations list-accounts --query 'Accounts[?Name 
 
     2.  Users -> select user to edit -> User Information -> **AWS SSO**
 
-    3.  Add **arn:aws:iam::<new account id>:role/SSOAdministratorAccess,arn:aws:iam::<new account id>:saml-provider/ivy-gsuite** or ** arn:aws:iam::<new account id>:role/SSOViewOnlyAccess,arn:aws:iam::<new account id>:saml-provider/ivy-gsuite** (accordingly)
+    3.  Add `arn:aws:iam::<new account id>:role/SSOAdministratorAccess,arn:aws:iam::<new account id>:saml-provider/<IVY_TAG>-<SAML_PROVIDER>` or `arn:aws:iam::<new account id>:role/SSOViewOnlyAccess,arn:aws:iam::<new account id>:saml-provider/<IVY_TAG>-<SAML_PROVIDER>` (accordingly)
 
     4.  Ensure duration is set to **28800**
 
