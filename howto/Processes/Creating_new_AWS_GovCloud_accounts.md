@@ -110,8 +110,8 @@ region               = us-west-2
 # Creating GovCloud accounts
 
 1.  Create GovCloud account pairing using the root credentials in the Web Console  
-    \*NOTE:\* This step cannot be done via the CLI unless you have IAM credentials for the root user (in this case, you will not have these)  
-    \*NOTE2:\* You MUST be a US citizen to complete this step.
+    **NOTE:** This step cannot be done via the CLI unless you have IAM credentials for the root user (in this case, you will not have these)  
+    **NOTE2:** You MUST be a US citizen to complete this step.
     Completing this step as a non-US citizen probably results in paperwork and general sadness.
     1.  Sign into the commercial account created earlier
 
@@ -212,7 +212,7 @@ role_arn             = arn:aws-us-gov:iam::<new account id>:role/SSOAdministrato
 region               = us-gov-west-1
 ```
 
-    See, I told you the SPid is different! Learn from my mistakes.
+    Notice the SPid is different from Commercial AWS!
 
 8. Remove IAM credentials for the GovCloud Administrator account
 
