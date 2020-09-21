@@ -13,7 +13,7 @@
 
 ## Create a new Marathon App
 
-1. On your browser fo to http://master.mesos.service.<environment>.<namespace>:8080
+1. On your browser fo to `http://master.mesos.service.<sysenv shortname>.<ivy tag>:8080`
 2. Click `Create Application`
 3. Click `JSON Mode`
 4. Delete the content and replace it with the one below (**DO NOT** click `Create Application` yet):
