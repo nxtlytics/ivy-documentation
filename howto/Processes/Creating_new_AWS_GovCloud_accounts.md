@@ -297,6 +297,10 @@ it, this can be done using our terraform [ACM certificates module](https://githu
 
 **Note:** Wait until AWS has issued the certificate
 
+### Default Public SSH Key
+
+**Note:** Remember to add your default public ssh key to EC2 in the new account
+
 ## *NOTE:* when the document below mentions rain it refer to this [repo](https://github.com/nxtlytics/ivy-rain)
 
 ## Step 1 - Create VPC and VPN
