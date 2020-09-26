@@ -137,7 +137,7 @@ awscli or any of their APIs
 
 **Install on MacOS using homebrew**
 
-``` java
+```shell
 brew tap versent/homebrew-taps
 brew install saml2aws
 ```
@@ -146,7 +146,7 @@ brew install saml2aws
 
 **\~/.saml2aws**
 
-``` java
+```shell
 [dev]
 app_id               = <You'll get this from the SAML Apps page on admin.google.com>
 url                  = <Google URL>
@@ -238,7 +238,7 @@ region               = us-west-2
 
     **Example:**
 
-    ``` java
+    ```shell
     $ ping master.mesos.service.dev.example.com
     PING master.mesos.service.dev.example.com (10.20.144.10): 56 data bytes
     64 bytes from 10.20.144.10: icmp_seq=0 ttl=254 time=58.004 ms

@@ -12,7 +12,7 @@ inside our house, the policy looks like below:
 
 **Block everything not coming from within the org template**
 
-``` java
+```shell
 {
     "Version": "2012-10-17",
     "Id": "Policy1580848985515",

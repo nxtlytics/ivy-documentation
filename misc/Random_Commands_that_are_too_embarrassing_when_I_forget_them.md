@@ -10,7 +10,7 @@ or directory error, add /usr/local/lib to /etc/ld.so.conf then run
 
 ## Test apache syntax
 
-``` java
+```shell
 apachectl configtest
 ```
 
@@ -20,7 +20,7 @@ apachectl configtest
 
 **Amazon Linux 2 example:**
 
-``` java
+```shell
 aws --profile your-profile ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-minimal*-ebs" --query 'sort_by(Images, &CreationDate)[].{Name: Name, ID: ImageId}  | [::-1] | [0:5]'
 [
     {
@@ -68,13 +68,13 @@ aws --profile your-profile --region=us-east-1 ec2 describe-instances --query "Re
 
 ## List all programs available in your session
 
-``` java
+```shell
 compgen -c
 ```
 
 ## List all programs with the same name
 
-``` java
+```shell
 type -a [program]
 ```
 
@@ -95,14 +95,14 @@ https://stackoverflow.com/questions/17639831/what-happens-if-two-command-line-pr
 
 ## Reverse DNS lookup in linux
 
-``` java
+```shell
 for i in $(cat file_with_ips_separated_by_a_newline.txt); do dig -x ${i}; done
 for i in 54.72.56.232 34.251.236.6 34.202.176.40 54.152.16.151; do dig -x ${i}; done
 ```
 
 ## Reverse DNS lookup in windows
 
-``` java
+```shell
 $array = @("54.72.56.232", "34.251.236.6", "34.202.176.40", "54.152.16.151")
 foreach ($element in $array) {
   [System.Net.Dns]::gethostentry($element).HostName
@@ -113,7 +113,7 @@ foreach ($element in $array) {
 
 ## "SSH" to docker for mac
 
-``` java
+```shell
 screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty 
 ```
 
@@ -121,7 +121,7 @@ screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux
 
 ## Do not duplicate a process if it is already running
 
-``` java
+```shell
 /usr/bin/flock -n /tmp/script.lock /usr/local/bin/script.sh > /dev/null
 ```
 
@@ -129,7 +129,7 @@ screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux
 
 ## Test ssh key against github
 
-``` java
+```shell
 $ ssh -T git@github.com
 Warning: Permanently added the RSA host key for IP address '192.30.255.113' to the list of known hosts.
 Hi nxtlytics! You've successfully authenticated, but GitHub does not provide shell access.
@@ -149,7 +149,7 @@ https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa
 
 ## Set push to your fork (avoid pushing to original project)
 
-``` java
+```shell
 git remote set-url --push origin <repo url>
 ```
 
@@ -293,15 +293,24 @@ Go regex tester: https://regoio.herokuapp.com/
 sed ':a;N;$!ba;s!line with newline\n!replacement line with newline\n!g' <file> | less
 ```
 
+# SSH
+
+## openssh private key to RSA key
+
+```shell
+$ cp /path/to/private/ssh/key /path/to/private/ssh/key-rsa
+$ ssh-keygen -p -N "" -m pem -f /path/to/private/ssh/key-rsa
+Key has comment 'user@host.local'
+Your identification has been saved with the new passphrase.
+```
+
 # Systemd
 
 ## Reload Systemd after modifying units
 
-
 ```bash
 systemctl daemon-reload
 ```
-
 
 # tar
 

@@ -96,7 +96,7 @@ curl https://github.com/web-flow.gpg | gpg --import
 
 This is a copy of githubs PGP public key retrieved on 2019-09-05:
 
-``` java
+```shell
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 xsBNBFmUaEEBCACzXTDt6ZnyaVtueZASBzgnAmK13q9Urgch+sKYeIhdymjuMQta
