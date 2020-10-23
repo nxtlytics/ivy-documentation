@@ -52,6 +52,28 @@ aws --profile your-profile ec2 describe-images --owners amazon --filters "Name=n
 aws --profile your-profile --region=us-east-1 ec2 describe-instances --query "Reservations[*].Instances[*].NetworkInterfaces[*].PrivateIpAddress" --output=text
 ```
 
+## Terminate instance in auto-scaling group
+
+```shell
+function asgdie() {
+ INSTANCE_ID="i-${1}"
+ DECREMENT=$2
+ REGION=${3:-"us-west-2"}
+ #REGION="us-west-2"
+ if [ "${DECREMENT}" == "-dec" ]; then
+   echo "terminating ${INSTANCE_ID} and decrementing..."
+   aws autoscaling terminate-instance-in-auto-scaling-group  \
+     --should-decrement-desired-capacity                     \
+     --region ${REGION} --instance-id ${INSTANCE_ID}
+ else
+   echo "terminating ${INSTANCE_ID} and replacing..."
+   aws autoscaling terminate-instance-in-auto-scaling-group    \
+     --no-should-decrement-desired-capacity                    \
+     --region ${REGION} --instance-id ${INSTANCE_ID}
+ fi
+}
+```
+
 # Bash
 
 ## Send a running process to the background and leave it running after ssh disconnects
