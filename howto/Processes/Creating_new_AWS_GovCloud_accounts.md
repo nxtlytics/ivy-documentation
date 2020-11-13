@@ -29,7 +29,19 @@
 4.  Create IAM credentials for the GovCloud Administrator account, and
     add them to your **`~/.aws/credentials`** file
 
-5.  Setup account alias, IAM Roles and delete default VPCs
+5. Clone https://github.com/nxtlytics/ivy-accounts-tools and setup [pipenv](https://pypi.org/project/pipenv/), if you haven't
+
+``` bash
+git clone git@github.com:nxtlytics/ivy-accounts-tools.git
+```
+
+or
+
+```bash
+git clone https://github.com/nxtlytics/ivy-accounts-tools.git
+```
+
+6.  Setup account alias, IAM Roles and delete default VPCs
 
 ``` bash
 AWS_PROFILE=new-gov-account pipenv run python setup_account.py -a ivy-aws-us-gov-something-dev
@@ -66,7 +78,7 @@ $ AWS_PROFILE=gov-app-dev pipenv run python setup_account.py -a ivy-aws-us-gov-a
 2020-09-17 19:37:02,412 INFO (MainThread) [vpc_cleaner.vpc_cleaner] Cleaning AWS region [us-gov-east-1] of all VPCs...
 ```
 
-6.  Add the SSO role to users in G Suite
+7.  Add the SSO role to users in G Suite
 
     1.  Open G Suite Admin
 
@@ -83,7 +95,7 @@ $ AWS_PROFILE=gov-app-dev pipenv run python setup_account.py -a ivy-aws-us-gov-a
     5.  Rinse and repeat for all users that require access to new
         account
 
-7.  Configure local SAML credentials for the GovCloud account. Add the following to your **`~/.saml2aws`** configuration file
+8.  Configure local SAML credentials for the GovCloud account. Add the following to your **`~/.saml2aws`** configuration file
 
 ``` text
 [<new account name>]
@@ -105,10 +117,10 @@ region               = us-gov-west-1
 
     Notice the SPid is different from Commercial AWS!
 
-8. Remove IAM credentials for the GovCloud Administrator account
+9. Remove IAM credentials for the GovCloud Administrator account
 
-9. Invite the new account to the AWS GovCloud organization (you need to
+10. Invite the new account to the AWS GovCloud organization (you need to
     login to `ivy-aws-us-gov-west-1-master-prod`  and send the invite to
     \<new account id\>)
 
-10. You can now start setting up [ivy in this environment](./Creating_new_ivy_environment.md)
+11. You can now start setting up [ivy in this environment](./Creating_new_ivy_environment.md)
