@@ -10,7 +10,7 @@
     - [G Suite - How to setup custom SAML application](https://support.google.com/a/answer/6087519?hl=en)
     - [AzureAD SSO with AWS](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/amazon-web-service-tutorial)
 
-3.  Clone https://github.com/nxtlytics/ivy-accounts-tools
+3.  Clone https://github.com/nxtlytics/ivy-accounts-tools and setup [pipenv](https://pypi.org/project/pipenv/)
 
 ``` bash
 git clone git@github.com:nxtlytics/ivy-accounts-tools.git
