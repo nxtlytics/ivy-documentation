@@ -105,10 +105,6 @@ region               = us-west-2
 
     The SPid above is specific to the commercial/gov providers in the G Suite console.
 
-    You can now use **`saml2aws login -a <new account name>`** to log into the new account with your personal user credentials.  
-    From now on, you can use **`aws --profile <new account name> ...`**
-    instead of the assumed role that was created earlier
-
   b) Azure AD
 
 ``` text
@@ -128,6 +124,10 @@ subdomain            =
 role_arn             = arn:aws:iam::<new account id>:role/SSOAdministratorAccess
 region               = us-west-2
 ```
+
+    You can now use **`saml2aws login -a <new account name>`** to log into the new account with your personal user credentials.
+    From now on, you can use **`aws --profile <new account name> ...`**
+    instead of the assumed role that was created earlier
 
 7. Recover the root password for the new account
 
