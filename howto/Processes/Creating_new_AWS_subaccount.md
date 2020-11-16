@@ -141,4 +141,4 @@ region               = us-west-2
 
 8. Store new root credentials in your password manager
 
-9. You can now start setting up [ivy in this environment](./Creating_new_ivy_environment.md)
+9. You can now start setting up [ivy in this environment](./Creating_new_ivy_environment.md) and/or [Creating an GovCloud account associated with this sub account](./Creating_new_AWS_GovCloud_accounts.md)
