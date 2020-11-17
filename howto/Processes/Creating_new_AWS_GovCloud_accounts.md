@@ -1,9 +1,12 @@
 # Creating GovCloud accounts
 
 1.  Create GovCloud account pairing using the root credentials in the Web Console, this step assumes you created an commercial AWS following [this tutorial](./Creating_new_AWS_subaccount.md)
+
     **NOTE:** This step cannot be done via the CLI unless you have IAM credentials for the root user (in this case, you will not have these)  
     **NOTE2:** You MUST be a US citizen to complete this step.
     Completing this step as a non-US citizen probably results in paperwork and general sadness.
+    **NOTE3:** AWS documentation for signing up to an AWS GovCloud Account [here](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-sign-up.html)
+
     1.  Sign into the commercial account created earlier
 
     2.  Go to [https://console.aws.amazon.com/billing/home?\#/account](https://console.aws.amazon.com/billing/home#/account)
