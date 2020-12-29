@@ -332,6 +332,18 @@ Key has comment 'user@host.local'
 Your identification has been saved with the new passphrase.
 ```
 
+## scp file through bastion
+
+```shell
+scp -o "ProxyCommand ssh -i ~/.ssh/<bastion-key> <bastion-user>@<bastion-ip> -W %h:%p" -i ~/.ssh/<server-key> <server-user>@<server-ip>:/path/to/file* .
+```
+
+## rsync file through bastion
+
+```shell
+rsync -azv -e "ssh -i ~/.ssh/<server-key> -o 'ProxyCommand ssh -i ~/.ssh/<bastion-key> <bastion-user>@<bastion-ip> -W %h:%p'" <server-user>@<server-ip>:/path/to/file* .
+```
+
 # Systemd
 
 ## Reload Systemd after modifying units
