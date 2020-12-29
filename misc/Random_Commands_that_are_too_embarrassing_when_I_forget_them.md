@@ -139,6 +139,12 @@ foreach ($element in $array) {
 screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty 
 ```
 
+## Run privileged container in the same pid and net namespace as another container
+
+```shell
+docker run --rm -u root -it --pid=container:<container ID> --net=container:<container ID> --cap-add sys_admin --cap-add sys_ptrace --entrypoint /bin/bash <container name>:<label>
+```
+
 # flock
 
 ## Do not duplicate a process if it is already running
