@@ -602,3 +602,29 @@ zk_pending_syncs        0
 $ echo ruok | nc 127.0.0.1 2181
 imok
 ```
+
+## VPN - Strongswan
+
+### Debuging VPN env-to-env
+
+ - Information below is specifically focused on the strongswan vpn setup as part of ivy-rain
+   - https://github.com/nxtlytics/ivy-rain/blob/master/instance-data/vpn.sh.tpl
+
+ - Great reference for ivy configured VPNs
+   - https://www.tecmint.com/setup-ipsec-vpn-with-strongswan-on-centos-rhel-8/
+
+```shell
+# If the connectivity between ENV1 and ENV2 becomes unstable or not connected
+# ssh ENV1 VPN EC2 Instance - expected output below
+$ strongswan status
+**-transit[2]: ESTABLISHED 49 minutes ago, <Private IP ENV1>[<Public IP ENV1>]...<Public IP ENV2>[<Public IP ENV2>]
+**-transit{5}:  INSTALLED, TUNNEL, reqid 2, ESP in UDP SPIs: cc171d52_i cdb9b994_o
+**-transit{5}:   <leftsubnet> === <rightsubnet>
+```
+### Important strongswan/ipsec configuration files
+ - /etc/strongswan/ipsec.secrets
+    - contains pre-shared keys
+ - /etc/strongswan/ipsec.conf
+    - references specific conf file/directory for configuration options
+ - /etc/strongswan/ipsec.d/*.conf
+    - contains settings for the tunnel
