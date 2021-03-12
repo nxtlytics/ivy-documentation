@@ -235,6 +235,24 @@ False
 #   referred to by the variables are equal
 ```
 
+## Exception handling
+
+```python
+import contextlib
+
+with contextlib.suppress(FileNotFoundError):
+    os.remove('somefile.tmp')
+```
+
+is the same as
+
+```python
+try:
+    os.remove('somefile.tmp')
+except FileNotFoundError:
+    pass
+```
+
 # Windows
 
 ## How to retrieve hidden (dotted/starred) passwords from GUIs
