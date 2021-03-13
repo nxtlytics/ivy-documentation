@@ -113,6 +113,28 @@ command line. They are used in this order:
 Source:
 https://stackoverflow.com/questions/17639831/what-happens-if-two-command-line-programs-share-the-same-name
 
+## Reading Output of a Command Into an Array in Bash
+
+Source: [here](https://www.baeldung.com/linux/reading-output-into-array)
+
+```shell
+my_array=( $(command) )
+```
+
+### Example
+
+```shell
+$ seq 5
+1
+2
+3
+4
+5
+$ my_array=( $(seq 5) )
+$ declare -p my_array
+declare -a my_array=([0]="1" [1]="2" [2]="3" [3]="4" [4]="5")
+```
+
 # dig
 
 ## Reverse DNS lookup in linux
