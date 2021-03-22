@@ -33,6 +33,12 @@ Subdomain Takeover
 -   [ubiquiti - longer explanation](https://hackerone.com/reports/145224)
 -   [data.gov](https://hackerone.com/reports/317005)
 
+## Reserved IP addresses
+
+- [169.254.169.123](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) - Amazon Time Sync Service
+- [169.254.169.253](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) - Amazon DNS server
+- [169.254.169.254](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html) - Amazon Metadata service
+
 # Azure
 
 ## Azure services by FedRAMP and DoD CC SRG audit scope
@@ -57,6 +63,10 @@ Source: [Azure docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-frame
 Anyone who shows up as "External Azure Active Directory" is a user who is already present in another Azure AD and have used Office365 email to redeem the invite.
 
 [Source](https://github.com/MicrosoftDocs/azure-docs/issues/29140)
+
+## Reserved IP Addresses
+
+- [What address ranges can I use in my VNets?](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
 
 # Certbot
 
