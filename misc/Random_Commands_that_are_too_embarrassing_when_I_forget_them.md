@@ -505,6 +505,16 @@ Source:
 
 <http://sysadmin.wikia.com/wiki/DHCP_debugging_with_tcpdump>
 
+## Containers
+
+### run tcpdump within a given running container
+
+**Note:** The following commands are executed from the host, and not within the container
+```shell
+$ ps aux # find the process ID (PID)
+$ nsenter -n -t <PID> tcpdump -i eth0 -A
+```
+
 # Terraform - Terragrunt
 
 ## format check .tf and .tfvars files
