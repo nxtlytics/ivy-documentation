@@ -167,6 +167,14 @@ screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux
 docker run --rm -u root -it --pid=container:<container ID> --net=container:<container ID> --cap-add sys_admin --cap-add sys_ptrace --entrypoint /bin/bash <container name>:<label>
 ```
 
+## Run command from linux host within a container namespace
+
+```shell
+$ docker ps # find the container ID
+$ docker inspect <Container ID> | grep Pid # find the process ID (PID)
+$ nsenter -n -t <PID> <command to execute>
+```
+
 # flock
 
 ## Do not duplicate a process if it is already running
@@ -511,7 +519,8 @@ Source:
 
 **Note:** The following commands are executed from the host, and not within the container
 ```shell
-$ ps aux # find the process ID (PID)
+$ docker ps # find the container ID
+$ docker inspect <Container ID> | grep Pid # find the process ID (PID)
 $ nsenter -n -t <PID> tcpdump -i eth0 -A
 ```
 
