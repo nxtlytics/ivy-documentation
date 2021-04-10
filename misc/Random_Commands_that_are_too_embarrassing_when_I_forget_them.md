@@ -247,6 +247,15 @@ git log --name-status HEAD^..HEAD
 
 5.  git push origin master --force
 
+## How to squash all commits on branch
+
+```shell
+git checkout yourBranch
+git reset $(git merge-base main yourBranch)
+git add -A
+git commit -m "one commit on yourBranch"
+```
+
 ## git cheatsheet
 
 ```shell
