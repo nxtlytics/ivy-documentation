@@ -68,6 +68,14 @@ Anyone who shows up as "External Azure Active Directory" is a user who is alread
 
 - [What address ranges can I use in my VNets?](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
 
+## Azure resource URIs components
+
+- https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage
+
+## Define a naming convention
+
+- https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
+
 # Certbot
 
 ## How does a certbot route53 dns challenge looks like?
