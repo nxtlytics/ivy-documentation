@@ -39,6 +39,25 @@ Subdomain Takeover
 - [169.254.169.253](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) - Amazon DNS server
 - [169.254.169.254](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html) - Amazon Metadata service
 
+## AWS SDKs
+
+### How credentials are searched for in a host:
+
+1. Passing credentials as parameters in the boto.client() method
+2. Passing credentials as parameters when creating a Session object
+3. Environment variables
+4. Shared credential file (~/.aws/credentials)
+5. AWS config file (~/.aws/config)
+6. Assume Role provider
+7. Boto2 config file (/etc/boto.cfg and ~/.boto)
+8. Instance metadata service on an Amazon EC2 instance that has an IAM role configured.
+
+Source: [boto3 | Configuring credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#configuring-credentials)
+
+### Using IAM role
+
+How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
+
 # Azure
 
 ## Azure services by FedRAMP and DoD CC SRG audit scope
