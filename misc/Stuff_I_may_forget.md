@@ -87,6 +87,10 @@ Anyone who shows up as "External Azure Active Directory" is a user who is alread
 
 - [What address ranges can I use in my VNets?](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
 
+## Azure does NOT support outbound ping from VMs to the Internet via a NAT gateway
+
+- icmp ping is failing, source [here](https://docs.microsoft.com/en-us/azure/virtual-network/nat-gateway/troubleshoot-nat#icmp-ping-is-failing)
+
 ## Azure resource URIs components
 
 - https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage
