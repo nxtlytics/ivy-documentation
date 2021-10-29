@@ -21,29 +21,21 @@ apachectl configtest
 **Amazon Linux 2 example:**
 
 ```shell
-aws --profile your-profile ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-minimal*-ebs" --query 'sort_by(Images, &CreationDate)[].{Name: Name, ID: ImageId}  | [::-1] | [0:5]'
-[
-    {
-        "Name": "amzn2-ami-minimal-hvm-2.0.20191217.0-x86_64-ebs",
-        "ID": "ami-0e2c4438b8dc5b48b"
-    },
-    {
-        "Name": "amzn2-ami-minimal-hvm-2.0.20191217.0-arm64-ebs",
-        "ID": "ami-08f942e7c38d6b8b4"
-    },
-    {
-        "Name": "amzn2-ami-minimal-hvm-2.0.20191116.0-x86_64-ebs",
-        "ID": "ami-0d0e4c663fcb087ff"
-    },
-    {
-        "Name": "amzn2-ami-minimal-hvm-2.0.20191116.0-arm64-ebs",
-        "ID": "ami-0d9d3f76da27f4a30"
-    },
-    {
-        "Name": "amzn2-ami-minimal-hvm-2.0.20191024.3-x86_64-ebs",
-        "ID": "ami-05b6c00fc86fac8f6"
-    }
-]
+aws --profile=your-profile ssm get-parameters --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 --region us-east-1 --output=json
+{
+    "Parameters": [
+        {
+            "Name": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2",
+            "Type": "String",
+            "Value": "ami-0c2b8ca1dad447f8a",
+            "Version": 50,
+            "LastModifiedDate": "2021-07-27T17:11:40.696000-05:00",
+            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2",
+            "DataType": "text"
+        }
+    ],
+    "InvalidParameters": []
+}
 ```
 
 ## Get all IPs for ec2 instances in a given region
