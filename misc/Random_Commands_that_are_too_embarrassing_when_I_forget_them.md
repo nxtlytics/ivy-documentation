@@ -197,6 +197,15 @@ https://gist.github.com/mattratleph/4026987
 
 https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa#.2gzkxzv2m
 
+## Update commit(s) email address(es)
+
+https://www.scivision.dev/git-update-email-address/
+https://github.com/newren/git-filter-repo
+
+## Remove secrets from git repository
+
+https://rtyley.github.io/bfg-repo-cleaner/
+
 ## Set push to your fork (avoid pushing to original project)
 
 ```shell
