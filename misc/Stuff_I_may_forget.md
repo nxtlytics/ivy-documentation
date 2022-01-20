@@ -1,29 +1,29 @@
 # 01 - Stuff I may forget
 
-# AWS
+## AWS
 
-## AWS services in Scope by Compliance Program
+### AWS services in Scope by Compliance Program
 
 [AWS Services in Scope](https://aws.amazon.com/compliance/services-in-scope/)
 
-## About Global services (e. g. IAM, Route53)
+### About Global services (e. g. IAM, Route53)
 
-### Cloudtrail
+#### Cloudtrail
 
 Remember that changes to global services are only available on CloudTrail under the `us-east-1`  region.
 
-## Cloudfront
+### Cloudfront
 
-### Origin Access Identity (OAI) to use with private s3 buckets
+#### Origin Access Identity (OAI) to use with private s3 buckets
 
 - [Cloudfront + Private S3](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-access-to-amazon-s3/)
     -   [Youtube Video Explanation](https://youtu.be/x95vzaeEsRk)
 
-## GovCloud Endpoints
+### GovCloud Endpoints
 
 [AWS GovCloud Endpoints](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html)
 
-## Route53
+### Route53
 
 For record types that include a domain name, enter a fully qualified domain name, for example, www.example.com. The trailing dot is optional.
 [Source](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html)
@@ -33,15 +33,15 @@ Subdomain Takeover
 -   [ubiquiti - longer explanation](https://hackerone.com/reports/145224)
 -   [data.gov](https://hackerone.com/reports/317005)
 
-## Reserved IP addresses
+### Reserved IP addresses
 
 - [169.254.169.123](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) - Amazon Time Sync Service
 - [169.254.169.253](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) - Amazon DNS server
 - [169.254.169.254](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html) - Amazon Metadata service
 
-## AWS SDKs
+### AWS SDKs
 
-### How credentials are searched for in a host:
+#### How credentials are searched for in a host:
 
 1. Passing credentials as parameters in the boto.client() method
 2. Passing credentials as parameters when creating a Session object
@@ -54,17 +54,23 @@ Subdomain Takeover
 
 Source: [boto3 | Configuring credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#configuring-credentials)
 
-### Using IAM role
+#### Using IAM role
 
 How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
 
-# Azure
+### S3
 
-## Azure services by FedRAMP and DoD CC SRG audit scope
+#### Disable ACLs
+
+- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>
+
+## Azure
+
+### Azure services by FedRAMP and DoD CC SRG audit scope
 
 [Azure Services in Scope](https://docs.microsoft.com/en-us/azure/azure-government/compliance/azure-services-in-fedramp-auditscope)
 
-## Organize Azure Resources
+### Organize Azure Resources
 
 Azure provides four levels of management scope: management groups, subscriptions, resource groups, and resources. The following image shows
 the relationship of these levels.
@@ -73,35 +79,39 @@ the relationship of these levels.
 
 Source: [Azure docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagmentGroupsAndHierarchy) and [version date](https://github.com/MicrosoftDocs/cloud-adoption-framework/blob/6ce592263ee78c731760b0e9603b6ec5173911ee/docs/ready/azure-setup-guide/organize-resources.md) 09 Apr 2019 
 
-## Upgrade to a general-purpose v2 storage account
+### Upgrade to a general-purpose v2 storage account
 
 [Upgrade storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-upgrade?tabs=azure-portal)
 
-## What does "External Azure Active Directory" mean?
+### What does "External Azure Active Directory" mean?
 
 Anyone who shows up as "External Azure Active Directory" is a user who is already present in another Azure AD and have used Office365 email to redeem the invite.
 
 [Source](https://github.com/MicrosoftDocs/azure-docs/issues/29140)
 
-## Reserved IP Addresses
+### Reserved IP Addresses
 
 - [What address ranges can I use in my VNets?](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
 
-## Azure does NOT support outbound ping from VMs to the Internet via a NAT gateway
+### Azure does NOT support outbound ping from VMs to the Internet via a NAT gateway
 
 - icmp ping is failing, source [here](https://docs.microsoft.com/en-us/azure/virtual-network/nat-gateway/troubleshoot-nat#icmp-ping-is-failing)
 
-## Azure resource URIs components
+### Azure resource URIs components
 
 - https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage
 
-## Define a naming convention
+### Define a naming convention
 
 - https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 
-# Certbot
+### Automating Azure Application Gateway SSL certificate renewals with Let’s Encrypt and Azure Automation
 
-## How does a certbot route53 dns challenge looks like?
+- <https://intelequia.com/blog/post/1012/automating-azure-application-gateway-ssl-certificate-renewals-with-let-s-encrypt-and-azure-automation>
+
+## Certbot
+
+### How does a certbot route53 dns challenge looks like?
 
 **Event name: ChangeResourceRecordSets**
 
@@ -175,19 +185,19 @@ Anyone who shows up as "External Azure Active Directory" is a user who is alread
 }
 ```
 
-# DNS
+## DNS
 
-## How DNS works
+### How DNS works
 
 [How DNS works](https://howdns.works/)
 
-# Jenkins
+## Jenkins
 
-## Accessing and dumping Jenkins credentials
+### Accessing and dumping Jenkins credentials
 
 **Source:** https://www.codurance.com/publications/2019/05/30/accessing-and-dumping-jenkins-credentials
 
-### Grabbing credentials using a browser inspection tool
+#### Grabbing credentials using a browser inspection tool
 
 1. Navigate to http://<Jenkins FQDN>/credentials/
 2. Update any of the credentials.
@@ -217,7 +227,7 @@ println hudson.util.Secret.decrypt("{AQAAABAAAAAgPT7JbBVgyWiivobt0CJEduLyP0lB3uy
 
 There you have it; now you can decrypt any Jenkins secret (if you have admin privileges).
 
-### Iterate and decrypt credentials from the console
+#### Iterate and decrypt credentials from the console
 
 Another way is to list all credentials then decrypt them from the console:
 
@@ -248,15 +258,15 @@ id=production-bastion  desc=production-bastion key=[-----BEGIN RSA PRIVATE KEY..
 
 This script is not finished though. You can look up all the credential class names in the Jenkins source code.
 
-# Linux
+## Linux
 
-## STIG-Partitioned Enterprise Linux (spel)
+### STIG-Partitioned Enterprise Linux (spel)
 
 [plus3it/spel](https://github.com/plus3it/spel)
 
-# Python
+## Python
 
-## "is" vs "=="
+### "is" vs "=="
 
 ```python
 >>> a = [1, 2, 3]
@@ -270,13 +280,13 @@ True
 True
 >>> a is c
 False
-# • "is" expressions evaluate to True if two
-#   variables point to the same object
-# • "==" evaluates to True if the objects
-#   referred to by the variables are equal
+## • "is" expressions evaluate to True if two
+##   variables point to the same object
+## • "==" evaluates to True if the objects
+##   referred to by the variables are equal
 ```
 
-## Exception handling
+### Exception handling
 
 ```python
 import contextlib
@@ -294,9 +304,9 @@ except FileNotFoundError:
     pass
 ```
 
-# Windows
+## Windows
 
-## How to retrieve hidden (dotted/starred) passwords from GUIs
+### How to retrieve hidden (dotted/starred) passwords from GUIs
 
 1.  Download 32-bit or 64-bit version from [here](https://www.nirsoft.net/utils/bullets_password_view.html)
     (depending on the arch of the application you want to extract from)
