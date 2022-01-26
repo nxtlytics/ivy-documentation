@@ -68,6 +68,11 @@ How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](ht
 
 - <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>
 
+### SAML
+
+- <https://github.com/Versent/saml2aws>
+- <https://github.com/trek10inc/awsume>
+
 ### OIDC
 
 #### Github Actions
