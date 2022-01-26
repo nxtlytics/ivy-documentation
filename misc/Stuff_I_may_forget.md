@@ -58,6 +58,10 @@ Source: [boto3 | Configuring credentials](https://boto3.amazonaws.com/v1/documen
 
 How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
 
+#### `aws-runas`
+
+- <https://github.com/mmmorris1975/aws-runas>
+
 ### S3
 
 #### Disable ACLs
@@ -69,6 +73,8 @@ How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](ht
 #### Github Actions
 
 - <https://benoitboure.com/securely-access-your-aws-resources-from-github-actions>
+- <https://github.com/github/roadmap/issues/249>
+- <https://awsteele.com/blog/2021/09/15/aws-federation-comes-to-github-actions.html>
 
 #### Azure
 
