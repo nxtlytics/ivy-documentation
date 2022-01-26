@@ -64,6 +64,16 @@ How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](ht
 
 - <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>
 
+### OIDC
+
+#### Github Actions
+
+- <https://benoitboure.com/securely-access-your-aws-resources-from-github-actions>
+
+#### Azure
+
+- <https://blog.identitydigest.com/azuread-access-aws/>
+
 ## Azure
 
 ### Azure services by FedRAMP and DoD CC SRG audit scope
