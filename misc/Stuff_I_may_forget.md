@@ -77,6 +77,7 @@ How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](ht
 
 #### Github Actions
 
+- <https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services>
 - <https://benoitboure.com/securely-access-your-aws-resources-from-github-actions>
 - <https://github.com/github/roadmap/issues/249>
 - <https://awsteele.com/blog/2021/09/15/aws-federation-comes-to-github-actions.html>
