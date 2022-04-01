@@ -185,6 +185,15 @@ Warning: Permanently added the RSA host key for IP address '192.30.255.113' to t
 Hi nxtlytics! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
+## `~/.netrc` for authenticating https requests
+
+Source: <https://stackoverflow.com/questions/46645843/where-to-store-my-git-personal-access-token/68558789#68558789>
+
+```shell
+$ cat ~/.netrc
+machine github.com login doesnotmatter password <ghp_XXXXXXXXXXXX>
+```
+
 ## How to solve a merge conflict with vimdiff
 
 http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
