@@ -153,6 +153,12 @@ foreach ($element in $array) {
 screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty 
 ```
 
+or
+
+```shell
+nc -U ~/Library/Containers/com.docker.docker/Data/debug-shell.sock
+```
+
 ## Run privileged container in the same pid and net namespace as another container
 
 ```shell
