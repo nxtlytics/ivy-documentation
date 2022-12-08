@@ -86,11 +86,19 @@ How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](ht
 
 - <https://blog.identitydigest.com/azuread-access-aws/>
 
+### Tools
+
+- [Cloudsplaining is an AWS IAM Security Assessment tool that identifies violations of least privilege and generates a risk-prioritized report](https://github.com/salesforce/cloudsplaining)
+
 ## Azure
 
 ### Azure services by FedRAMP and DoD CC SRG audit scope
 
 [Azure Services in Scope](https://docs.microsoft.com/en-us/azure/azure-government/compliance/azure-services-in-fedramp-auditscope)
+
+### Azure subscription and service limits, quotas, and constraints
+
+[Azure subscription and service limits, quotas, and constraints](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits)
 
 ### Organize Azure Resources
 
@@ -326,6 +334,10 @@ except FileNotFoundError:
     pass
 ```
 
+## Databases
+
+- [Command Equivalents in Postgres Coming From Mysql](https://www.covermymeds.com/main/insights/articles/command-equivalents-in-postgres-coming-from-mysql/)
+
 ## Windows
 
 ### How to retrieve hidden (dotted/starred) passwords from GUIs
@@ -337,3 +349,7 @@ except FileNotFoundError:
 4.  Run the executable you extracted on previous step
 5.  Open application that has hidden password and you should see the password on `bullets password view` 
 6.  Done!
+
+## Datadog
+
+- [enabling `runtime_security_config` makes `auth_token` unreadable](https://github.com/DataDog/datadog-agent/issues/9064)

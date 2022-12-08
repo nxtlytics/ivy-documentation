@@ -19,6 +19,8 @@
 ## On Kubernetes
 
 - [A visual guide on troubleshooting Kubernetes deployments](https://learnk8s.io/troubleshooting-deployments)
+- [Packer configuration for building a custom EKS AMI](https://github.com/awslabs/amazon-eks-ami)
+- [Download Kubernetes](https://www.downloadkubernetes.com/)
 
 ## On Site Reliability Engineering
 
@@ -37,6 +39,25 @@
 
 - [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 
+## On Browser Engineering
+
+- [Web Browser Engineering](https://browser.engineering/)
+- [Inside look at modern web browser (part 1)](https://bit.ly/browsers-pt1)
+- [Inside look at modern web browser (part 2)](https://bit.ly/browsers-pt2)
+- [Inside look at modern web browser (part 3)](https://bit.ly/browsers-pt3)
+- [Inside look at modern web browser (part 4)](https://bit.ly/browsers-pt4)
+
 ## On Python
 
 - [The Python Open Source Computer Science Degree](https://github.com/ForrestKnight/open-source-cs-python)
+
+## Tools
+
+- [Find out what container runtime is being used as well as features available](https://github.com/genuinetools/amicontained)
+- [A container analysis and exploitation tool for pentesters and engineers](https://github.com/brompwnie/botb)
+- [Continuous profiling for analysis of CPU and memory usage, down to the line number and throughout time](https://github.com/parca-dev/parca)
+- [Signing containers and artifacts](https://github.com/notaryproject/notaryproject/blob/main/scenarios.md)
+- [OCI Registry As Storage](https://oras.land/)
+- [Regex generator](https://regex-generator.olafneumann.org/)
+- [CyberChef - The Cyber Swiss Army Knife](https://gchq.github.io/CyberChef/)
+- [Mess with DNS](https://messwithdns.net/)
