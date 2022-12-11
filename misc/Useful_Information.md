@@ -61,3 +61,4 @@
 - [Regex generator](https://regex-generator.olafneumann.org/)
 - [CyberChef - The Cyber Swiss Army Knife](https://gchq.github.io/CyberChef/)
 - [Mess with DNS](https://messwithdns.net/)
+- [Learn Wardley Mapping](https://learnwardleymapping.com/)
