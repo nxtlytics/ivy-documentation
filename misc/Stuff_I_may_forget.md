@@ -100,6 +100,14 @@ How to access IAM role from `~/.aws/config` or `~/.aws/credentials` go [here](ht
 
 [Azure subscription and service limits, quotas, and constraints](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits)
 
+### Azure Permissions
+
+[Azure-Permissions.csv](./Azure-Permissions.csv)
+
+#### Permissions you cannot assign
+
+- `Microsoft.DataMigration/locations/checkNameAvailability/read`
+
 ### Organize Azure Resources
 
 Azure provides four levels of management scope: management groups, subscriptions, resource groups, and resources. The following image shows
