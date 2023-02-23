@@ -376,6 +376,14 @@ Go regex tester: https://regoio.herokuapp.com/
 sed ':a;N;$!ba;s!line with newline\n!replacement line with newline\n!g' <file> | less
 ```
 
+## Append to the end of lines containing a pattern
+
+```shell
+git ls-files | grep '<REGEX that matches file names>' | xargs sed -i '/^<pattern to match>/ s/$/<text to append>/'
+```
+
+Source: <https://stackoverflow.com/questions/9591744/how-to-add-to-the-end-of-lines-containing-a-pattern-with-sed-or-awk>
+
 # SSH
 
 ## openssh private key to RSA key
