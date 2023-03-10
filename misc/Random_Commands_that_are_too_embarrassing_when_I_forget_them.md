@@ -263,6 +263,17 @@ git log --name-status HEAD^..HEAD
 
 5.  git push origin master --force
 
+## Work with `git stash`
+
+Source: <https://stackoverflow.com/questions/7677736/git-diff-against-a-stash>
+
+```shell
+$ git stash show -p
+$ git stash list
+$ git stash show -p stash@{1}
+$ git stash pop stash@{1}
+```
+
 ## How to squash all commits on branch
 
 ```shell
