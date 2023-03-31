@@ -151,6 +151,12 @@ Anyone who shows up as "External Azure Active Directory" is a user who is alread
 
 - <https://intelequia.com/blog/post/1012/automating-azure-application-gateway-ssl-certificate-renewals-with-let-s-encrypt-and-azure-automation>
 
+## Networking
+
+### Subnet Builder
+
+- [Subnet Builder](https://tidalcloud.com/subnet-builder/)
+
 ## Kuberentes
 
 - [NodeCritical pod gets Guaranteed OOMScore](https://github.com/kubernetes/kubernetes/blob/e64576af0acbbcafbe86a92108d9352e2bb3a2bf/pkg/kubelet/qos/policy.go#L41)
